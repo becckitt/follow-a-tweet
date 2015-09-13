@@ -13,5 +13,14 @@ class TwitterWrapper
 	  		config.access_token_secret = ENV["access_token_secret"]
 		end
 	end
-	
+
+	def get_search(search_term)
+		Client.search(search_term).collect do |tweet|
+			tweet
+		end
+	end
+
+	def get_all_tweets(search_term)
+		get_search(search_term)
+	end
 end
